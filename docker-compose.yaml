@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  comfyui:
+    build:
+      context: .
+    image: hqit/comfyui:latest
+    container_name: comfyui
+    command: "python main.py --port 8188 --listen"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    ports:
+      - "8188:8188"
+    restart: unless-stopped
+    volumes:
+      - ./models:/app/models
+      - ./output:/app/output
+    networks:
+      - comfyui_network
+networks:
+  comfyui_network:
+    ipam:
+      config:
+        - subnet: 192.168.108.0/24
