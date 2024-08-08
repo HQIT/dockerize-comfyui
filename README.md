@@ -1,5 +1,11 @@
 # dockerize-comfyui
 
+## Steps
+1. clone https://github.com/comfyanonymous/ComfyUI
+2. put Dockerfile and docker-compose.yaml into ComfyUI
+3. ``sudo docker-compose up --build -d``
+4. open ComfyUI dashboard by url ``http://{host|ip}:8188``
+
 ## Dockerfile
 - build docker image, ``docker build -t hqit/comfyui:latest .``
 
